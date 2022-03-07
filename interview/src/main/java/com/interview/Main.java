@@ -1,6 +1,5 @@
 package com.interview;
 
-import java.util.Scanner;
 
 public class Main {
 
@@ -24,19 +23,6 @@ public class Main {
                 board.getGrid()[i][j] = -1;
             }
         }
-
-        System.out.println("Single Player? ");
-        if(readInt() == 0) {
-            ticTacToe.init(board, false);
-        } else {
-            ticTacToe.init(board, true);
-        }
+        ticTacToe.init(board);
     }
-
-    private static int readInt() {
-        Scanner myInput = new Scanner( System.in );
-        return myInput.nextInt();
-    }
-
-
 }

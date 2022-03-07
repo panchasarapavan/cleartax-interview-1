@@ -5,23 +5,16 @@ import java.util.Scanner;
 public class TicTacToe {
     Board board;
     int currentPlayer = 0;
-    boolean singlePlayer = false;
 
-    public void init(Board board, boolean singlePlayer) {
+    public void init(Board board) {
         this.board = board;
-        this.singlePlayer = singlePlayer;
     }
 
     public void step() {
         printBoard();
         System.out.println("Move for player " + (currentPlayer + 1));
-        if(currentPlayer == 1 && singlePlayer) {
-            Location location = IntelligentMoveGenerator.nextMove();
-            board.getGrid()[location.i][location.j] = currentPlayer;
-        } else {
-            Location location = new Location(readInt(), readInt());
-            board.getGrid()[location.i][location.j] = currentPlayer;
-        }
+        Location location = new Location(readInt(), readInt());
+        board.getGrid()[location.i][location.j] = currentPlayer;
         currentPlayer = currentPlayer == 0 ? 1 : 0;
     }
 
